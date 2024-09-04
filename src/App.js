@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from 'react-router-dom';
+import Layout from "./components/Layout";
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import {persistor, store} from "./store/configureStore";
+import AdminPanel from "./components/AdminPanel";
+import MainSite from "./components/MainSite";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+            <PersistGate persistor={persistor}>
+                <Routes>
+                    <Route path='/' element={<Layout/>}>
+                        <Route index element={<MainSite/>}/>
+                        <Route path='/admin' element={<AdminPanel/> }/>
+                        <Route path='/:section' element={<MainSite/> }/>
+                        <Route path='*' element={<MainSite/>}/>
+                    </Route>
+                </Routes>
+            </PersistGate>
+        </Provider>
+    );
 }
 
 export default App;
