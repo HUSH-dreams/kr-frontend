@@ -58,7 +58,7 @@ const Pictures = ({pictures, lang}) => {
                 clearInterval(interval);
             }
 
-            if (count > 5) {
+            if (count > 50) {
                 clearInterval(interval);
             }
         }, 1000)

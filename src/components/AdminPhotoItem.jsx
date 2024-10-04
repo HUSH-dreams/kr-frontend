@@ -6,7 +6,6 @@ import {
     clearAdminMessage,
     imageDelete,
     imageEdit,
-    imagesUploadError,
     setAdminError
 } from "../store/content/actions";
 import {useDispatch} from "react-redux";
@@ -48,7 +47,7 @@ const AdminPhotoItem = ({pic, token}) => {
                     alt={pic.name}
                     loading="lazy" />
             </div>
-            <div className="admin-icons">
+            <div className="admin-icons admin-pic-name">
                 {pic.name}
             </div>
             <input className="admin-input" type="text" value={descRu} placeholder="Описание фото (RU)"

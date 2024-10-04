@@ -47,7 +47,7 @@ const AdminVideo = ({token}) => {
 
     return (
         <>
-            <div className="admin-content-container">
+            <div className="admin-content-container admin-video-wrapper">
                 <div className="pictures-container">
                     <div className="pictures-header">
                         <span style={{width: 300}}>Ссылка</span>

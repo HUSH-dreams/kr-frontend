@@ -1,17 +1,13 @@
 import React, {useState} from 'react';
-import DeleteIcon from "@mui/icons-material/Delete";
 import {
-    adminError,
-    clearAdminError, clearAdminMessage, imageEdit,
+    clearAdminError, clearAdminMessage,
     imagesUploadError,
-    imagesUploadStart,
-    scheduleDelete,
     setAdminError,
     uploadSchedule
 } from "../store/content/actions";
 import {useDispatch, useSelector} from "react-redux";
-import {selectAdminError, selectAdminMessage, selectAdminSchedule} from "../store/content/selectors";
-import Message from "./Message";
+import {selectAdminSchedule} from "../store/content/selectors";
+import AdminScheduleItem from "./AdminScheduleItem";
 
 const AdminSchedule = ({token, lang}) => {
     const dispatch = useDispatch();
@@ -51,14 +47,6 @@ const AdminSchedule = ({token, lang}) => {
         } else {
             setLength(0);
         }
-    }
-
-    const handleDelete = (id) => {
-        dispatch(clearAdminMessage());
-
-        setTimeout(() => {
-            dispatch(scheduleDelete(id, token));
-        },100);
     }
 
     const handleSubmit = (e) => {
@@ -119,24 +107,7 @@ const AdminSchedule = ({token, lang}) => {
                     </div>
                     {
                         schedules?.map(schedule => (
-                            <div className="admin-pic-container">
-                                <div style={{width: '100%'}}>
-                                    <img
-                                        src={`${process.env.REACT_APP_BACKEND_URL}/schedule/image/${schedule.file_name}`}
-                                        alt="" height="50px"/>
-                                </div>
-                                <div style={{width: '100%'}}>{lang ? schedule.name_eng : schedule.name_ru}</div>
-                                <div style={{width: '100%'}}>{lang ? schedule.place_eng : schedule.place_ru}</div>
-                                <div style={{width: '100%'}}>{schedule.time}</div>
-                                <div style={{width: '100%'}}>{lang ? schedule.description_eng : schedule.description_ru}</div>
-                                <div style={{width: '100%'}}>{schedule.yandex}</div>
-                                <div style={{width: '100%'}}>{schedule.link}</div>
-                                <div style={{width: '100%'}} className="admin-icons">
-                                    <div onClick={() => handleDelete(schedule.id)}>
-                                        <DeleteIcon/>
-                                    </div>
-                                </div>
-                            </div>
+                            <AdminScheduleItem lang={lang} schedule={schedule} token={token}/>
                         ))
                     }
                 </div>

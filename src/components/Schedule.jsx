@@ -54,8 +54,6 @@ const Schedule = ({schedule, lang, isSmall}) => {
 
     },[lang])
 
-    console.log('toShow: ', toShow);
-
     const handleToggle = () => {
         setCurrent(!isCurrent);
     }

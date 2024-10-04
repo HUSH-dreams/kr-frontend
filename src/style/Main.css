@@ -1051,7 +1051,7 @@ input[type="file"] {
     font-size: 14px;
 }
 
-.admin-video-add input {
+.admin-video-add input, .admin-schedule-edit {
     padding: 5px;
     border-radius: 5px;
     background-color: rgba(0, 0, 0, 0);
@@ -1059,6 +1059,11 @@ input[type="file"] {
     transition: all 100ms ease-in;
     margin: 0 10px;
     color: white;
+    resize: none;
+}
+
+textarea.admin-schedule-edit {
+    height: 200px;
 }
 
 .admin-video-add input::placeholder {
@@ -2214,6 +2219,289 @@ input[type="file"] {
         width: 100vw !important;
         height: 100%;
         background-color: rgba(50, 50, 50, 0.5);
+    }
+
+    .admin-container {
+        width: 100vw;
+        height: 100dvh;
+        padding: 5px;
+    }
+
+    .admin-content {
+        margin-top: 7px;
+    }
+
+    .admin-menu {
+        gap: 0;
+        height: auto;
+    }
+
+    .admin-menu .admin-flags {
+        width: 25px !important;
+        flex-direction: column !important;
+        gap: 5px;
+    }
+
+    .admin-menu .admin-flags img {
+        height: 10px !important;
+    }
+
+    .admin-menu-button {
+        height: auto;
+        padding: 4px;
+    }
+
+    .admin-button {
+        padding: 5px;
+    }
+
+    .admin-content-container .pictures-container {
+        max-height: 70vh;
+    }
+
+    .admin-pictures-wrapper .pictures-header > span:nth-child(2) {
+        display: none;
+    }
+
+    .admin-pic-name {
+        display: none !important;
+    }
+
+    .admin-pictures-wrapper .admin-pic-container {
+        gap: 2px;
+    }
+
+    .admin-pictures-wrapper .admin-pic-container input {
+        width: 110px;
+        padding: 3px;
+    }
+
+    .admin-pictures-wrapper .admin-pic-container .admin-pic {
+        width: 50px;
+    }
+
+    .admin-pictures-wrapper .admin-pic-container img {
+        max-height: 50px;
+        min-height: unset;
+        max-width: 50px;
+        height: auto !important;
+    }
+
+    .modal-message-container {
+        top: 0;
+        left: 0;
+    }
+
+    .admin-pictures-wrapper .admin-pic-container .admin-icons {
+        width: max-content;
+        gap: 0;
+    }
+
+    .admin-container .pictures-container {
+        border-radius: 5px;
+        border: 1px solid white;
+        max-height: 65vh;
+        margin-bottom: 20px;
+    }
+
+    .schedule-container .admin-pic-container > div:nth-child(1),
+    .schedule-container .pictures-header > span:nth-child(1) {
+        max-width: 70px;
+    }
+
+    .schedule-container .admin-pic-container > div:nth-child(8),
+    .schedule-container .pictures-header > span:nth-child(8) {
+        max-width: 70px;
+    }
+
+    .schedule-container .admin-pic-container > div:nth-child(3),
+    .schedule-container .admin-pic-container > div:nth-child(4),
+    .schedule-container .admin-pic-container > div:nth-child(5),
+    .schedule-container .admin-pic-container > div:nth-child(6),
+    .schedule-container .admin-pic-container > div:nth-child(7),
+    .schedule-container .pictures-header > span:nth-child(3),
+    .schedule-container .pictures-header > span:nth-child(4),
+    .schedule-container .pictures-header > span:nth-child(5),
+    .schedule-container .pictures-header > span:nth-child(6),
+    .schedule-container .pictures-header > span:nth-child(7) {
+        display: none;
+    }
+
+    .schedule-add .schedule-form {
+        justify-content: space-evenly;
+        gap: 3px;
+    }
+
+    .admin-video-add form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+    .admin-video-add form input {
+        width: calc(50% - 3px);
+        margin: 0;
+    }
+
+    .admin-content .bio-container {
+        padding-top: 0;
+    }
+
+    .admin-video-wrapper .admin-pic-container > div:nth-child(4){
+        max-width: max-content;
+    }
+
+    .admin-content .bio-textarea {
+        min-height: 70dvh;
+        max-height: 65dvh;
+    }
+
+    .admin-contacts-wrapper #contacts-container h3 {
+        font-size: 16px;
+    }
+
+    .admin-contacts-wrapper #contacts-container span {
+        margin: 0 auto 5px auto;
+        font-size: 14px;
+    }
+
+    .admin-contacts-wrapper .bio-container {
+        padding-bottom: 0;
+    }
+
+    .admin-contacts-wrapper .bio-container span {
+        margin: 0 auto 5px auto;
+    }
+
+    .admin-contacts-wrapper .bio-container a {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .admin-contacts-wrapper > .admin-button {
+        margin-bottom: 0 !important;
+    }
+
+    .admin-contacts-wrapper #contacts-container {
+        font-size: 14px;
+    }
+
+    .admin-content .pictures-container span, .admin-content .pictures-container div, .admin-content .pictures-container input {
+        font-size: 13px;
+    }
+
+    .admin-contacts-wrapper .admin-pic-container a {
+        width: 35px !important;
+        height: 35px !important;
+    }
+
+    .admin-contacts-wrapper .pictures-container {
+        max-height: 30dvh;
+    }
+
+    .admin-contacts-wrapper .pictures-header > span:nth-child(4),
+    .admin-contacts-wrapper .pictures-header > span:nth-child(1)
+    {
+        max-width: max-content;
+    }
+
+    .admin-contacts-wrapper .admin-pic-container > div:nth-child(4),
+    .admin-contacts-wrapper .admin-pic-container > div:nth-child(1)
+    {
+        max-width: max-content;
+    }
+
+    .schedule-add .schedule-form > * {
+        max-width: 50%;
+        width: calc(50% - 3px);
+    }
+
+    .admin-pic-container {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+        box-sizing: border-box;
+        border-top: 1px solid rgba(0, 0, 0, 0);
+        border-bottom: 1px solid rgba(0, 0, 0, 0);;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .admin-pic-container:hover {
+        border-top: 1px solid rgb(235, 174, 52);
+        border-bottom: 1px solid rgb(235, 174, 52);
+    }
+
+    .admin-pic {
+        width: 200px;
+    }
+
+    .admin-icons {
+        width: 200px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .admin-icons div {
+        cursor: pointer;
+        transition: all 80ms ease-in;
+    }
+
+    .admin-icons div:hover * {
+        color: rgb(235, 174, 52);
+    }
+
+    .admin-pic-container img {
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    .pictures-header {
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(30, 30, 30, 0.9);;
+        backdrop-filter: blur(5px);
+        height: 36px;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .admin-video-add input {
+        padding: 5px;
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid slategrey;
+        transition: all 100ms ease-in;
+        margin: 0 10px;
+        color: white;
+    }
+
+    .admin-video-add input::placeholder {
+        color: white;
+    }
+
+    .admin-video-add input:hover {
+        border-color: rgb(235, 174, 52);
+        color: rgb(235, 174, 52);
+    }
+
+    .admin-video-add input:focus {
+        color: rgb(54, 191, 90);
+        border-color: rgb(54, 191, 90);
+    }
+
+    .admin-video-add input:focus::placeholder {
+        color: rgb(54, 191, 90);
+    }
+
+    .admin-video-add input:hover::placeholder {
+        color: rgb(235, 174, 52);
     }
 }
 

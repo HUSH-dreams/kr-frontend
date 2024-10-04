@@ -125,7 +125,7 @@ const AdminContacts = ({token, lang}) => {
     }
 
     return (<>
-        <div className="admin-content">
+        <div className="admin-content admin-contacts-wrapper">
             {edit ? (<>
                 <textarea className="bio-textarea" value={bio}
                           onChange={e => setBio(e.target.value)}></textarea>

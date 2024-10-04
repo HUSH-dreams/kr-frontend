@@ -81,7 +81,7 @@ const AdminPhoto = ({token}) => {
 
     return (
         <>
-            <div className="admin-content-container">
+            <div className="admin-content-container admin-pictures-wrapper">
                 <div className="pictures-container">
                     <div className="pictures-header">
                         <span style={{width: 200}}>Фото</span>
