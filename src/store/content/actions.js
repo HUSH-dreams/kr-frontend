@@ -509,6 +509,7 @@ export const uploadSchedule = (schedule, file, token) => {
                         descriptionRu: schedule.descriptionRu,
                         descriptionEng: schedule.descriptionEng,
                         file: data.data.file ? data.data.file : 'schedule.jpg',
+                        id: 'none',
                         yandex: schedule.yandex
                     })
                 });
@@ -519,6 +520,44 @@ export const uploadSchedule = (schedule, file, token) => {
                 } else {
                     dispatch(scheduleUploadSuccess(newData.data));
                 }
+            }
+        } catch (e) {
+            dispatch(scheduleUploadError(e.toString()));
+            console.log(e.toString());
+        }
+    }
+}
+
+export const editSchedule = (schedule, token) => {
+    return async dispatch => {
+        dispatch(scheduleUploadStart());
+        try {
+            const newResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/schedule`, {
+                method: "POST",
+                headers: {
+                    "Authorization": "Bearer " + token
+                },
+                body: JSON.stringify({
+                    link: schedule.link,
+                    nameRu: schedule.nameRu,
+                    nameEng: schedule.nameEng,
+                    placeRu: schedule.placeRu,
+                    placeEng: schedule.placeEng,
+                    time: schedule.time,
+                    descriptionRu: schedule.descriptionRu,
+                    descriptionEng: schedule.descriptionEng,
+                    file: schedule.file,
+                    yandex: schedule.yandex,
+                    id: schedule.id
+                })
+            });
+
+            const newData = await newResponse.json();
+
+            if (!newData.success) {
+                dispatch(scheduleUploadError(newData.reason))
+            } else {
+                dispatch(scheduleUploadSuccess(newData.data));
             }
         } catch (e) {
             dispatch(scheduleUploadError(e.toString()));

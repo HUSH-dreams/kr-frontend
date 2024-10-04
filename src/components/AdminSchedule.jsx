@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     clearAdminError, clearAdminMessage,
     imagesUploadError,
@@ -22,6 +22,8 @@ const AdminSchedule = ({token, lang}) => {
     const [yandex, setYandex] = useState('');
     const schedules = useSelector(selectAdminSchedule);
     const [length, setLength] = useState(0);
+
+    schedules.sort((a,b) => b.id - a.id);
 
     function fileValidation() {
         let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
@@ -96,11 +98,12 @@ const AdminSchedule = ({token, lang}) => {
             <div className="admin-content-container schedule-content-container">
                 <div className="pictures-container schedule-container">
                     <div className="pictures-header">
+                        <span style={{width: '100%'}}>ID</span>
                         <span style={{width: '100%'}}>Фото</span>
                         <span style={{width: '100%'}}>{lang ? 'Название(ENG)' : 'Название(RU)'}</span>
+                        <span style={{width: '100%'}}>{lang ? 'Описание(ENG)' : 'Описание(RU)'}</span>
                         <span style={{width: '100%'}}>{lang ? 'Место(ENG)' : 'Место(RU)'}</span>
                         <span style={{width: '100%'}}>Время</span>
-                        <span style={{width: '100%'}}>{lang ? 'Описание(ENG)' : 'Описание(RU)'}</span>
                         <span style={{width: '100%'}}>Карты</span>
                         <span style={{width: '100%'}}>Билеты</span>
                         <span style={{width: '100%'}}>Действие</span>
