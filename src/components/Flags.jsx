@@ -22,7 +22,8 @@ const Flags = () => {
     }
 
     return (
-        <div style={{display: 'flex', justifyContent: 'space-around', flexDirection: 'row', width: 90, height: 'max-content'}}>
+        <div style={{display: 'flex', justifyContent: 'space-around', flexDirection: 'row', width: 90, height: 'max-content'}}
+             className="admin-flags">
             <ReactCountryFlag style={{scale: '1.8 1.3', cursor: "pointer"}}
                               countryCode='RU'
                               svg
